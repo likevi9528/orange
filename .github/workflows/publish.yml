@@ -1,8 +1,13 @@
 name: "publish"
 on:
-  push:
-    branches:
-      - release
+  workflow_dispatch:
+    inputs:
+      trigger:
+        description: Manually trigger
+        required: true
+        type: choice
+        options:
+          - build
 
 jobs:
   publish-tauri:
